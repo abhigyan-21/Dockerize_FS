@@ -4,7 +4,7 @@ This repository demonstrates Docker containerization techniques for full-stack a
 
 ## Projects
 
-### 1. React Docker Multi-Stage Build (`react-docker-app/`)
+### React Docker Multi-Stage Build
 
 A complete React application demonstrating multi-stage Docker builds for optimal production deployment.
 
@@ -17,7 +17,12 @@ A complete React application demonstrating multi-stage Docker builds for optimal
 
 **Quick Start:**
 ```bash
+# For the organized structure (recommended):
 cd react-docker-app
+docker build -t react-docker-app .
+docker run -p 3000:80 react-docker-app
+
+# For the root-level files (legacy):
 docker build -t react-docker-app .
 docker run -p 3000:80 react-docker-app
 ```
@@ -35,25 +40,22 @@ docker run -p 3000:80 react-docker-app
 4. **Performance**: Static asset caching, compression
 5. **Best Practices**: .dockerignore, layer optimization
 
-## Prerequisites
-
-- Docker Desktop
-- Node.js (for local development)
-- Git
-
 ## Repository Structure
+
+This repository contains both an organized project structure and root-level React files for flexibility:
 
 ```
 Dockerize_FS/
 ├── README.md
-├── react-docker-app/          # React multi-stage build example
+├── react-docker-app/          # Organized React project (recommended)
 │   ├── Dockerfile             # Multi-stage configuration
 │   ├── Dockerfile.single-stage # Comparison build
 │   ├── .dockerignore          # Build optimization
 │   ├── nginx.conf             # Production web server config
-│   ├── docker-build.md        # Detailed documentation
 │   └── src/                   # React application source
-└── [future projects]          # Additional containerization examples
+├── Dockerfile                 # Root-level Docker config
+├── src/                       # Root-level React source
+└── package.json               # Root-level package config
 ```
 
 ## Getting Started
@@ -64,12 +66,16 @@ Dockerize_FS/
    cd Dockerize_FS
    ```
 
-2. Choose a project and follow its specific README instructions
+2. Choose your preferred structure:
+   - **Organized approach**: `cd react-docker-app` (recommended)
+   - **Root-level approach**: Use files in root directory
+
+## Prerequisites
+
+- Docker Desktop
+- Node.js (for local development)
+- Git
 
 ## Contributing
 
 Feel free to contribute additional containerization examples, optimizations, or improvements to existing projects.
-
-## License
-
-MIT License - see individual project directories for specific details.
